@@ -19,6 +19,7 @@ import {
 import Pagenation from "@/customUI/Pagenation"
 import { ActionItem, ActionMenu } from "@/customUI/ActionMenu"
 import { Checkbox } from "@/components/ui/checkbox"
+import Layout from "@/customUI/Layout"
 
 const headers = [
   { accessor: "id", value: "ID" },
@@ -366,157 +367,124 @@ export default function Orders() {
     })
   }
 
-  // <LineTab>
-  //             <LineButton onClick={changeTab} value="all">
-  //               All
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} badge={2} value="new">
-  //               New
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="submitted">
-  //               Submitted
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="accepted">
-  //               Accepted
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="processing">
-  //               Processing
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="order placed">
-  //               Order Placed
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="completed">
-  //               Completed
-  //             </LineButton>
-  //             <LineButton onClick={changeTab} value="cancelled">
-  //               Cancelled
-  //             </LineButton>
-  //           </LineTab>
   return (
-    <div className="flex  min-h-screen bg-[#F4F5F6] overflow-x-hidden ">
-      <div className="w-[384px] h-screen" />
-      <div className="w-full overflow-y-auto px-8 py-4 space-y-6 ">
-        <TopBar />
-
-        {/* ======= Content ============*/}
-        <div className=" shadow-sm bg-white rounded-xl min-h-[37rem] p-6">
-          <div className="flex items-center justify-between pl-2">
-            <LineTab>
-              <LineButton onClick={changeTab} value="all">
-                All
-              </LineButton>
-              <LineButton onClick={changeTab} badge={2} value="new">
-                New
-              </LineButton>
-              <LineButton onClick={changeTab} value="submitted">
-                Submitted
-              </LineButton>
-              <LineButton onClick={changeTab} value="accepted">
-                Accepted
-              </LineButton>
-              <LineButton onClick={changeTab} value="completed">
-                Completed
-              </LineButton>
-            </LineTab>
-            {/* SEARCH */}
-            <MySearch
-              handleSearch={handleSearch}
-              filterSelect={filterSelect}
-              filterValue={filterValue}
-              className="ml-40"
-            />
-          </div>
-          {/* TABLE */}
-          <div className="max-w-full overflow-x-auto pt-10">
-            <table>
-              <thead>
-                <tr className="border-b ">
-                  <td className="px-4">
-                    <Checkbox className=" border-ring w-5 h-5 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500" />
-                  </td>
-                  {headers.map((header, index) => (
-                    <td className="py-4 " key={index}>
-                      <button
-                        className={`flex items-center text-farm-green font-medium gap-1 py-1 px-3 hover:bg-accent rounded-md whitespace-nowrap  ${
-                          header.accessor === "remarks" ? "max-w-[320px]" : ""
-                        }`}
-                        onClick={() =>
-                          sortData(header.accessor as keyof DataItem)
-                        }
-                      >
-                        {header.value}
-                        <ChevronsUpDown className="h-4 w-4" />
-                      </button>
-                    </td>
-                  ))}
-                </tr>
-              </thead>
-              {/* TABLE BODY */}
-              <tbody>
-                {renderData?.map((item, index) => (
-                  <tr
-                    className="border-b hover:shadow-inner  cursor-pointer even:bg-accent odd:bg-white text-sm border-l-white  border-l-2 hover:border-l-farm-green  "
-                    key={index}
-                  >
-                    <td className="px-4">
-                      <Checkbox className="bg-background border-ring w-5 h-5 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500" />
-                    </td>
-                    <td className=" px-3 py-4  ">{item.id}</td>
-                    <td className=" px-3 py-4  ">{item.order_no}</td>
-                    <td className=" px-3 py-4  ">{item.merchant_id}</td>
-                    <td className=" px-3 py-4  ">{item.created_by}</td>
-                    <td className=" px-3 py-4  ">{item.date_needed}</td>
-                    <td className=" px-3 py-4    ">
-                      <div className="flex items-center gap-2 font-bold whitespace-nowrap ">
-                        {renderStatus(item.status).indicator}
-                        {renderStatus(item.status).label}
-                        {renderStatus(item.status).icon}
-                      </div>
-                    </td>
-                    <td className=" px-3 py-4  line-clamp-2 w-80 ">
-                      {item.remarks}
-                    </td>
-
-                    <td className=" px-3 py-4  ">{item.date_created}</td>
-                    <td className=" px-3 py-4  ">{item.date_modified}</td>
-                    <td className=" px-3 py-4  ">
-                      <ActionMenu>
-                        <ActionItem onClick={() => console.log("hi bro")}>
-                          <Check className="h-4 w-4" />
-                          Accept Order
-                        </ActionItem>
-                        <ActionItem onClick={() => console.log("hi bro")}>
-                          <Plus className="h-4 w-4" />
-                          Create Offer
-                        </ActionItem>
-                        <ActionItem onClick={() => console.log("hi bro")}>
-                          <Microscope className="w-4 h-4" />
-                          View breakDown
-                        </ActionItem>
-                      </ActionMenu>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {renderData.length === 0 && searchValue !== "" && (
-              <div className="flex items-center justify-center min-h-[10rem]">
-                {tableMessage}
-              </div>
-            )}
-          </div>
-
-          {/* PAGENATION */}
-          <Pagenation
-            pageSettings={pageSettings}
-            itemRange={itemRange}
-            pageItemsChange={pageItemsChange}
-            nextPage={nextPage}
-            prevPage={prevPage}
+    <Layout>
+      <div className=" shadow-sm bg-white rounded-xl min-h-[37rem] overflow-x-hidden p-6">
+        <div className="flex items-center justify-between pl-2">
+          <LineTab>
+            <LineButton onClick={changeTab} value="all">
+              All
+            </LineButton>
+            <LineButton onClick={changeTab} badge={2} value="new">
+              New
+            </LineButton>
+            <LineButton onClick={changeTab} value="submitted">
+              Submitted
+            </LineButton>
+            <LineButton onClick={changeTab} value="accepted">
+              Accepted
+            </LineButton>
+            <LineButton onClick={changeTab} value="completed">
+              Completed
+            </LineButton>
+          </LineTab>
+          {/* SEARCH */}
+          <MySearch
+            handleSearch={handleSearch}
+            filterSelect={filterSelect}
+            filterValue={filterValue}
+            className="ml-40"
           />
         </div>
+        {/* TABLE */}
+        <div className="max-w-full overflow-x-auto pt-10">
+          <table>
+            <thead>
+              <tr className="border-b ">
+                <td className="px-4">
+                  <Checkbox className=" border-ring w-5 h-5 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500" />
+                </td>
+                {headers.map((header, index) => (
+                  <td className="py-4 " key={index}>
+                    <button
+                      className={`flex items-center text-farm-green font-medium gap-1 py-1 px-3 hover:bg-accent rounded-md whitespace-nowrap  ${
+                        header.accessor === "remarks" ? "max-w-[320px]" : ""
+                      }`}
+                      onClick={() =>
+                        sortData(header.accessor as keyof DataItem)
+                      }
+                    >
+                      {header.value}
+                      <ChevronsUpDown className="h-4 w-4" />
+                    </button>
+                  </td>
+                ))}
+              </tr>
+            </thead>
+            {/* TABLE BODY */}
+            <tbody>
+              {renderData?.map((item, index) => (
+                <tr
+                  className="border-b hover:shadow-inner  cursor-pointer even:bg-accent odd:bg-white text-sm border-l-white  border-l-2 hover:border-l-farm-green  "
+                  key={index}
+                >
+                  <td className="px-4">
+                    <Checkbox className="bg-background border-ring w-5 h-5 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500" />
+                  </td>
+                  <td className=" px-3 py-4  ">{item.id}</td>
+                  <td className=" px-3 py-4  ">{item.order_no}</td>
+                  <td className=" px-3 py-4  ">{item.merchant_id}</td>
+                  <td className=" px-3 py-4  ">{item.created_by}</td>
+                  <td className=" px-3 py-4  ">{item.date_needed}</td>
+                  <td className=" px-3 py-4    ">
+                    <div className="flex items-center gap-2 font-bold whitespace-nowrap ">
+                      {renderStatus(item.status).indicator}
+                      {renderStatus(item.status).label}
+                      {renderStatus(item.status).icon}
+                    </div>
+                  </td>
+                  <td className=" px-3 py-4  line-clamp-2 w-80 ">
+                    {item.remarks}
+                  </td>
+
+                  <td className=" px-3 py-4  ">{item.date_created}</td>
+                  <td className=" px-3 py-4  ">{item.date_modified}</td>
+                  <td className=" px-3 py-4  ">
+                    <ActionMenu>
+                      <ActionItem onClick={() => console.log("hi bro")}>
+                        <Check className="h-4 w-4" />
+                        Accept Order
+                      </ActionItem>
+                      <ActionItem onClick={() => console.log("hi bro")}>
+                        <Plus className="h-4 w-4" />
+                        Create Offer
+                      </ActionItem>
+                      <ActionItem onClick={() => console.log("hi bro")}>
+                        <Microscope className="w-4 h-4" />
+                        View breakDown
+                      </ActionItem>
+                    </ActionMenu>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {renderData.length === 0 && searchValue !== "" && (
+            <div className="flex items-center justify-center min-h-[10rem]">
+              {tableMessage}
+            </div>
+          )}
+        </div>
+
+        {/* PAGENATION */}
+        <Pagenation
+          pageSettings={pageSettings}
+          itemRange={itemRange}
+          pageItemsChange={pageItemsChange}
+          nextPage={nextPage}
+          prevPage={prevPage}
+        />
       </div>
-      <NavigationMenu />
-    </div>
+    </Layout>
   )
 }

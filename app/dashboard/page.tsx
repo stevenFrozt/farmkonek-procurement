@@ -5,19 +5,17 @@ import NavigationMenu from "@/customUI/NavigationMenu"
 import TopBar from "@/customUI/TopBar"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
+import bannerImage from "@/public/dashboard/bannerFarmer.jpg"
+import Layout from "@/customUI/Layout"
 
 export default function dashboard() {
   return (
-    <div className="flex w-full min-h-screen bg-[#F4F5F6]">
-      <div className="w-[25%] h-1"></div>
-      <NavigationMenu />
-      {/* Content */}
-      <div className="w-full px-8 py-4 space-y-8">
-        <TopBar />
+    <Layout>
+      <div className="w-full space-y-8">
         <Banner />
         <Summary />
       </div>
-    </div>
+    </Layout>
   )
 }
 
@@ -30,23 +28,23 @@ function Banner() {
           <span className="px-2 font-medium text-farm-yellow">John!</span>
         </h1>
         <Separator />
-        <p className="text-justify leading-relaxed ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eius.
-          Illo ratione, eius architecto explicabo beatae non, amet at doloremque
-          hic commodi perspiciatis. Dolorem ipsum, ullam reprehenderit aperiam,
-          consequatur inventore neque autem dolor eos dolorum, animi quis
-          sapiente numquam totam?
+        <p className=" hyphens-auto leading-relaxed ">
+          &qoute;Embrace Efficiency and Seize Opportunities with Farmkonekt
+          Procurement! We seamlessly link suppliers to empower progress and
+          provide you with the ultimate gateway to success. Experience elevated
+          productivity and seamless sourcing, unlocking the full potential of
+          your business. Welcome to a new era of procurement excellence!&qoute;
         </p>
       </div>
       {/* Image */}
-      <div className="w-60 h-60 relative mx-auto">
-        <Image
-          src={"/dashboard/bannerFarmer.jpg"}
-          alt="farmer"
-          fill
-          className="object-cover absolute"
-        />
-      </div>
+      <Image
+        src={bannerImage}
+        placeholder="blur"
+        alt="farmer"
+        width={2000}
+        height={2000}
+        className="w-60 h-60 mx-auto"
+      />
     </div>
   )
 }
@@ -112,6 +110,7 @@ function CardSummary({ image, number, title }: CardSummaryProps) {
             src={image}
             alt="farmer"
             fill
+            sizes="800px"
             className="object-contain absolute"
           />
         </div>

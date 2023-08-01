@@ -1,12 +1,11 @@
 "use client"
 
-import { Badge, LayoutDashboard } from "lucide-react"
+import { LayoutDashboard } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import React, { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-
+import logo from "@/public/logo/farmkonekt_logo.png"
 interface NavProps {
   className?: string
   children?: React.ReactNode
@@ -15,16 +14,15 @@ interface NavProps {
 function Nav({ className = "", children }: NavProps) {
   return (
     <div className={` bg-white shadow-lg overflow-hidden ${className}`}>
-      <div className="relative w-48 h-48 mx-auto ">
-        <Image
-          src={"/logo/farmkonekt_logo.png"}
-          className="absolute object-cover"
-          alt="farmkonekt"
-          fill={true}
-          priority
-          sizes="400px"
-        />
-      </div>
+      <Image
+        src={logo}
+        className="h-48 w-48 mx-auto"
+        alt="farmkonekt"
+        width={1683}
+        height={1683}
+        priority
+        placeholder="blur"
+      />
 
       {children}
     </div>
@@ -53,6 +51,7 @@ function NavItem({
   useEffect(() => {
     if (currentPath.includes(link)) setIsActive(true)
   }, [currentPath, link])
+
   return (
     <Link href={link}>
       <button

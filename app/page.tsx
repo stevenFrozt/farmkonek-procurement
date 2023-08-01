@@ -1,3 +1,5 @@
+import Layout from "@/customUI/Layout"
+
 export default function Home() {
-  return <div>home</div>
+  return <Layout />
 }
