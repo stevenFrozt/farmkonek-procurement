@@ -1,8 +1,6 @@
 "use client"
 
 import { Separator } from "@/components/ui/separator"
-import NavigationMenu from "@/customUI/NavigationMenu"
-import TopBar from "@/customUI/TopBar"
 import Image from "next/image"
 import React, { useEffect, useState } from "react"
 import bannerImage from "@/public/dashboard/bannerFarmer.jpg"
@@ -21,7 +19,7 @@ export default function dashboard() {
 
 function Banner() {
   return (
-    <div className="lg:px-20 p-6 shadow-sm bg-white rounded-xl w-full flex flex-col-reverse lg:flex-row items-center lg:justify-center">
+    <div className="lg:px-20 p-6 shadow-sm bg-white lg:rounded-xl w-full flex flex-col-reverse lg:flex-row items-center lg:justify-center">
       <div className="lg:space-y-4 space-y-2 lg:w-1/2 py-10 ">
         <h1 className="text-2xl tracking-wide uppercase">
           Welcome Back,

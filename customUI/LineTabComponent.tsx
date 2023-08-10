@@ -120,7 +120,7 @@ export default function LineTabComponent({
 
   return (
     <div className="flex flex-col-reverse justify-center md:flex-row items-center md:justify-between gap-1 md:gap-0  ">
-      <div className="w-full md:w-fit overflow-x-auto scrollbar-hide">
+      <div className="w-full md:w-fit overflow-x-auto scrollbar-hide pr-20">
         <LineTab>
           <LineButton onClick={changeTab} value="all">
             All

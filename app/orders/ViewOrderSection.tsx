@@ -38,7 +38,10 @@ export default function ViewOrder({
   const [offerModal, setOfferModal] = useState(false)
 
   return (
-    <div className={`max-w-[50%] w-1/2 p-10 ${className}`} style={style}>
+    <div
+      className={`max-w-[50%] w-1/2 lg:p-10 pt-6 pr-4 ${className}`}
+      style={style}
+    >
       <div>
         {/* Back */}
         <button
@@ -52,11 +55,13 @@ export default function ViewOrder({
         <div className="pl-6 pt-10 ">
           {/* Order Details */}
           <div>
-            <h1 className="text-2xl font-semibold pb-2">Order Details</h1>
+            <h1 className="text-xl lg:text-2xl font-semibold pb-2">
+              Order Details
+            </h1>
             <Separator />
-            <div className="pt-8 flex  gap-4">
+            <div className="pt-8 flex flex-col md:flex-row  gap-4">
               {/* Details */}
-              <div className="grid grid-cols-2 w-1/2 ">
+              <div className="grid md:grid-cols-2 md:w-1/2 gap-2">
                 <ItemLabel label="ID" value="#082361" />
                 <ItemLabel label="Merchant ID" value="#082361" />
                 <ItemLabel label="Order Number" value="#082361" />
@@ -68,7 +73,7 @@ export default function ViewOrder({
               </div>
 
               {/* Remarks */}
-              <div className="w-1/2 ">
+              <div className="md:w-1/2 ">
                 <div className="w-full min-h-[100%]  border border-ring p-4 rounded-md space-y-1">
                   <label className="font-semibold ">Remarks</label>
                   <p className="text-slate-500">
@@ -82,7 +87,7 @@ export default function ViewOrder({
           </div>
           {/* Order Items */}
           <div className="pt-20">
-            <h1 className="text-2xl font-semibold pb-2 flex items-center gap-2">
+            <h1 className="text-xl lg:text-2xl font-semibold pb-2 flex items-center gap-2">
               Order Items{" "}
               <div className="min-h-[28px] min-w-[28px] p-1 text-sm rounded-full flex items-center justify-center bg-slate-300">
                 5
@@ -95,7 +100,7 @@ export default function ViewOrder({
                 <TableBody>
                   {renderData?.map((item, index) => (
                     <tr
-                      className="border-b hover:shadow-inner  cursor-pointer even:bg-accent odd:bg-white text-sm border-l-white  border-l-2 hover:border-l-farm-green  "
+                      className="border-b hover:shadow-inner text-xs md:text-base  cursor-pointer even:bg-accent odd:bg-white  border-l-white  border-l-2 hover:border-l-farm-green  "
                       key={index}
                     >
                       <td className="px-4">

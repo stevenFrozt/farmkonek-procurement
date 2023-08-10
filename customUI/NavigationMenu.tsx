@@ -3,7 +3,7 @@ import { Nav, NavItem } from "./Nav"
 
 export default function NavigationMenu() {
   return (
-    <Nav className="h-screen md:w-[304px] ">
+    <Nav className="h-screen w-full lg:w-[304px] ">
       <NavItem link="/dashboard">Dashboard</NavItem>
       <NavItem link="/orders" icon={<GanttChartSquare />} Badge={2}>
         Orders

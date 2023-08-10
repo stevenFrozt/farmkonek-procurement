@@ -1,7 +1,5 @@
-import { renderStatus } from "@/customUtils/renderStatus"
 import React, { useState } from "react"
-import { ActionItem, ActionMenu } from "./ActionMenu"
-import { Check, ChevronsUpDown, Microscope, Plus } from "lucide-react"
+import { ChevronsUpDown } from "lucide-react"
 import { sortData } from "@/customUtils/sortData"
 import data from "../app/data.json"
 import { DataItem } from "@/types/types"

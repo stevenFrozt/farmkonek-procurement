@@ -6,26 +6,17 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import logo from "@/public/logo/farmkonekt_logo.png"
+import { useAtom } from "jotai"
+import { navAtom } from "./Layout"
 interface NavProps {
   className?: string
   children?: React.ReactNode
 }
 
 function Nav({ className = "", children }: NavProps) {
-  const [isHide, setIsHide] = useState(false)
+  const [, setShowNav] = useAtom(navAtom)
   return (
-    <div className={` bg-white shadow-lg overflow-hidden  ${className}`}>
-      <div className="w-full  flex justify-end">
-        <button
-          className="p-1"
-          onClick={() => {
-            setIsHide(true)
-          }}
-        >
-          <X className="w-8 h-8 lg:hidden" />
-        </button>
-      </div>
-
+    <div className={` bg-white shadow-lg overflow-hidden   ${className}`}>
       <Image
         src={logo}
         className="h-48 w-48 mx-auto"
@@ -35,6 +26,15 @@ function Nav({ className = "", children }: NavProps) {
         priority
         placeholder="blur"
       />
+      <div className="flex items-center justify-end text-red-500">
+        <button
+          className=" px-2 lg:hidden font-semibold flex items-center"
+          onClick={() => setShowNav(prev => !prev)}
+        >
+          Close Menu
+          <X className="w-7 h-7 " />
+        </button>
+      </div>
 
       {children}
     </div>
@@ -59,13 +59,14 @@ function NavItem({
 }: navItemProps) {
   const currentPath = usePathname()
   const [isActive, setIsActive] = useState(false)
+  const [, setShowNav] = useAtom(navAtom)
 
   useEffect(() => {
     if (currentPath.includes(link)) setIsActive(true)
   }, [currentPath, link])
 
   return (
-    <Link href={link}>
+    <Link href={link} onClick={() => setShowNav(false)}>
       <button
         className={` w-full py-6 flex items-center gap-8 text-lg hover:bg-muted border-green-500  ${
           isActive
@@ -75,7 +76,7 @@ function NavItem({
         onClick={() => (isActive ? window.location.reload() : "")}
       >
         <div className="w-28 flex items-center justify-end pl-2">{icon}</div>
-        <div className=" md:text-left w-full ">
+        <div className=" text-left w-full ">
           <div className="relative w-fit">
             {children}
 
