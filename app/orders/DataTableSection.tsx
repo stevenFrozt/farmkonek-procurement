@@ -62,7 +62,7 @@ export default function DataTableSection({
 
   return (
     <div
-      className={`max-w-[50%] overflow-x-hidden p-6 ${className}`}
+      className={`max-w-[50%] overflow-x-hidden lg:p-6 px-6 pb-4  ${className}`}
       style={style}
     >
       <LineTabComponent
@@ -77,7 +77,7 @@ export default function DataTableSection({
         <TableBody>
           {renderData?.map((item, index) => (
             <tr
-              className="border-b hover:shadow-inner  cursor-pointer even:bg-accent odd:bg-white text-sm border-l-white  border-l-2 hover:border-l-farm-green  "
+              className="border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-base border-l-white  border-l-2 hover:border-l-farm-green  "
               key={index}
               onClick={RowClick}
             >

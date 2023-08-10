@@ -119,24 +119,26 @@ export default function LineTabComponent({
   }
 
   return (
-    <div className="flex flex-col-reverse justify-center md:flex-row items-center md:justify-between gap-1 md:gap-0 ">
-      <LineTab>
-        <LineButton onClick={changeTab} value="all">
-          All
-        </LineButton>
-        <LineButton onClick={changeTab} badge={2} value="new">
-          New
-        </LineButton>
-        <LineButton onClick={changeTab} value="submitted">
-          Submitted
-        </LineButton>
-        <LineButton onClick={changeTab} value="accepted">
-          Accepted
-        </LineButton>
-        <LineButton onClick={changeTab} value="completed">
-          Completed
-        </LineButton>
-      </LineTab>
+    <div className="flex flex-col-reverse justify-center md:flex-row items-center md:justify-between gap-1 md:gap-0  ">
+      <div className="w-full md:w-fit overflow-x-auto scrollbar-hide">
+        <LineTab>
+          <LineButton onClick={changeTab} value="all">
+            All
+          </LineButton>
+          <LineButton onClick={changeTab} badge={2} value="new">
+            New
+          </LineButton>
+          <LineButton onClick={changeTab} value="submitted">
+            Submitted
+          </LineButton>
+          <LineButton onClick={changeTab} value="accepted">
+            Accepted
+          </LineButton>
+          <LineButton onClick={changeTab} value="completed">
+            Completed
+          </LineButton>
+        </LineTab>
+      </div>
 
       {/* SEARCH */}
       <MySearch

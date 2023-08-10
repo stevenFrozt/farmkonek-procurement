@@ -112,7 +112,7 @@ function Pagenation({
   }
 
   return (
-    <div className="flex items-center  py-6 justify-between text-sm ">
+    <div className="flex items-center flex-col md:flex-row gap-2 py-6 justify-between text-sm ">
       {/* Items per Page 25  */}
       <div className="flex items-center gap-4 ">
         <h1 className="whitespace-nowrap">Items per Page </h1>
@@ -126,7 +126,7 @@ function Pagenation({
       {/* <span className="bg-ring/50 w-[1.5px] mx-4 rounded-full h-7" /> */}
 
       {/* < 1 of 20 >  */}
-      <div className="flex items-center gap-4 ">
+      <div className="flex items-center gap-4 order-first md:order-none pb-4 md:pb-0">
         <button
           onClick={() => prevPage()}
           className={` text-white bg-green-500 rounded-md p-1 hover:scale-105 transition-all duration-150 ${

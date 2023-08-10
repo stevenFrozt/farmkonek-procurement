@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <Layout target={targetDiv}>
       <div
-        className={` shadow-sm bg-white rounded-xl min-h-[37rem] overflow-x-hidden ${
+        className={` shadow-sm bg-white lg:rounded-xl min-h-[37rem] overflow-x-hidden ${
           isViewOrder ? " overflow-hidden" : ""
         } `}
       >

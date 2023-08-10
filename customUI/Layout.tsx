@@ -17,7 +17,7 @@ export default function Layout({ children, target }: layoutProps) {
         className="w-full min-h-screen overflow-y-scroll lg:px-6 lg:py-4"
         ref={target}
       >
-        <TopBar className="mb-6 " />
+        <TopBar className="lg:mb-6" />
         {children}
       </div>
     </div>

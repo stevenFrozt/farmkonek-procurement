@@ -21,19 +21,19 @@ export default function dashboard() {
 
 function Banner() {
   return (
-    <div className="px-20  shadow-sm bg-white rounded-xl w-full flex items-center justify-center">
-      <div className="space-y-4 w-1/2 py-10 ">
+    <div className="lg:px-20 p-6 shadow-sm bg-white rounded-xl w-full flex flex-col-reverse lg:flex-row items-center lg:justify-center">
+      <div className="lg:space-y-4 space-y-2 lg:w-1/2 py-10 ">
         <h1 className="text-2xl tracking-wide uppercase">
           Welcome Back,
-          <span className="px-2 font-medium text-farm-yellow">John!</span>
+          <span className="px-2 font-bold text-farm-yellow">John!</span>
         </h1>
         <Separator />
         <p className=" hyphens-auto leading-relaxed ">
-          &qoute;Embrace Efficiency and Seize Opportunities with Farmkonekt
+          Embrace Efficiency and Seize Opportunities with Farmkonekt
           Procurement! We seamlessly link suppliers to empower progress and
           provide you with the ultimate gateway to success. Experience elevated
           productivity and seamless sourcing, unlocking the full potential of
-          your business. Welcome to a new era of procurement excellence!&qoute;
+          your business. Welcome to a new era of procurement excellence!
         </p>
       </div>
       {/* Image */}
@@ -43,7 +43,7 @@ function Banner() {
         alt="farmer"
         width={2000}
         height={2000}
-        className="w-60 h-60 mx-auto"
+        className="w-60 h-60 mx-auto "
       />
     </div>
   )
@@ -51,7 +51,7 @@ function Banner() {
 
 function Summary() {
   return (
-    <div className="flex items-stretch justify-between ">
+    <div className="lg:flex lg:items-stretch lg:justify-between grid grid-cols-1 gap-2 md:grid-cols-2 px-2 pb-4 ">
       {/* ORDERS */}
       <CardSummary image="/dashboard/order.jpg" number={105} title="orders" />
       {/* Merchants */}
@@ -102,7 +102,7 @@ function CardSummary({ image, number, title }: CardSummaryProps) {
   }, [number])
 
   return (
-    <div className="flex flex-col  items-center justify-center p-4 rounded-xl shadow-sm w-[22%]   bg-white overflow-hidden">
+    <div className="flex flex-col  items-center justify-center p-4 rounded-xl shadow-sm lg:w-[22%]   bg-white overflow-hidden">
       <div className="flex flex-col items-center justify-between  font-semibold text-farm-brown">
         {/* IMAGE */}
         <div className="relative w-52 h-36">
