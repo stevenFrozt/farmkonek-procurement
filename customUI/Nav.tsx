@@ -1,6 +1,6 @@
 "use client"
 
-import { LayoutDashboard } from "lucide-react"
+import { LayoutDashboard, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -12,8 +12,20 @@ interface NavProps {
 }
 
 function Nav({ className = "", children }: NavProps) {
+  const [isHide, setIsHide] = useState(false)
   return (
-    <div className={` bg-white shadow-lg overflow-hidden ${className}`}>
+    <div className={` bg-white shadow-lg overflow-hidden  ${className}`}>
+      <div className="w-full  flex justify-end">
+        <button
+          className="p-1"
+          onClick={() => {
+            setIsHide(true)
+          }}
+        >
+          <X className="w-8 h-8 lg:hidden" />
+        </button>
+      </div>
+
       <Image
         src={logo}
         className="h-48 w-48 mx-auto"
@@ -60,9 +72,10 @@ function NavItem({
             ? "border-l-4 text-farm-green  font-semibold "
             : "text-farm-brown font-medium pl-1  "
         } ${className}`}
+        onClick={() => (isActive ? window.location.reload() : "")}
       >
         <div className="w-28 flex items-center justify-end pl-2">{icon}</div>
-        <div className="text-left w-full ">
+        <div className=" md:text-left w-full ">
           <div className="relative w-fit">
             {children}
 

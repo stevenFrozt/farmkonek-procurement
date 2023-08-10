@@ -1,3 +1,4 @@
+import { HamburgerMenuIcon } from "@radix-ui/react-icons"
 import Image from "next/image"
 import React from "react"
 
@@ -7,8 +8,13 @@ interface TopBarProps {
 export default function TopBar({ className }: TopBarProps) {
   return (
     <div
-      className={`py-2 px-6 shadow-sm bg-white rounded-xl w-full flex items-center overflow-hidden justify-end ${className}`}
+      className={`py-2 px-2 lg:px-6 shadow-sm bg-white lg:rounded-xl w-full flex items-center overflow-hidden justify-between lg:justify-end ${className}`}
     >
+      {/* Nav */}
+      <button className="ml-4 lg:hidden">
+        <HamburgerMenuIcon className="h-7 w-7" />
+      </button>
+      {/* Profile */}
       <div className="flex items-center ">
         <div className="text-right pr-2 text-xs text-gray-500">
           <h1 className="font-semibold text-sm text-black">John Doe</h1>
@@ -18,7 +24,8 @@ export default function TopBar({ className }: TopBarProps) {
           <Image
             src={"/dashboard/bannerFarmer.jpg"}
             alt={"Profile"}
-            fill
+            width={2000}
+            height={2000}
             className="object-cover absolute"
           />
         </div>

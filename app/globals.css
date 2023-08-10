@@ -76,3 +76,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  /* Define custom CSS for scrollbar hide */
+  .scrollbar-hide::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+  }
+}

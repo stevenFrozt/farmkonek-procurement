@@ -41,7 +41,7 @@ function LineTab({
   }, [containerRef])
 
   return (
-    <div className="max-w-fit">
+    <div className="md:max-w-fit w-full overflow-x-auto scrollbar-hide">
       <div className={`flex gap-2 ${className}}`} ref={containerRef}>
         {/* Buttons Children */}
         {React.Children.map(children, (Button, index) => {

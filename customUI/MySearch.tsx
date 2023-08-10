@@ -47,7 +47,7 @@ function MySearch({
   return (
     <label
       htmlFor="search"
-      className={`my-4 p-1 pr-2 flex items-center  h-10 max-w-[30%] rounded-md border border-input bg-background  text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+      className={`my-4 p-1 pr-2 flex items-center  h-10 lg:max-w-[30%] rounded-md border border-input bg-background  text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
     >
       <Popover open={filterOpen} onOpenChange={setFilterOpen}>
         <PopoverTrigger asChild>
@@ -79,7 +79,7 @@ function MySearch({
                 </CommandItem>
               ))}
             </CommandGroup>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>No filter found.</CommandEmpty>
           </Command>
         </PopoverContent>
       </Popover>
