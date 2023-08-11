@@ -43,9 +43,9 @@ export function TableHeader({ headers, setBaseData }: any) {
                   header.accessor === "remarks" ? "max-w-[320px]" : ""
                 }`}
                 onClick={() =>
-                  setBaseData(
+                  setBaseData((prev: any) =>
                     sortData(
-                      data,
+                      prev,
                       header.accessor as keyof DataItem,
                       setSorting,
                       sorting
