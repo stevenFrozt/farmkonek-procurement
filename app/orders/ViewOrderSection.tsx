@@ -39,7 +39,7 @@ export default function ViewOrder({
 
   return (
     <div
-      className={`max-w-[50%] w-1/2 lg:p-10 pt-6 pr-4 ${className}`}
+      className={`max-w-[50%] w-1/2 lg:p-10 pt-6 pr-4  ${className}`}
       style={style}
     >
       <div>

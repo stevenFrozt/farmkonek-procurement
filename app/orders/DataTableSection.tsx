@@ -62,7 +62,7 @@ export default function DataTableSection({
 
   return (
     <div
-      className={`max-w-[50%] overflow-x-hidden lg:p-6 px-6 pb-4  ${className}`}
+      className={`max-w-[50%] overflow-x-hidden overflow-y-hidden lg:p-6 px-6 pb-4  ${className}`}
       style={style}
     >
       <LineTabComponent
