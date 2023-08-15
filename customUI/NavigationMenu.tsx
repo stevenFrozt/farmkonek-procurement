@@ -1,4 +1,13 @@
-import { GanttChartSquare, UserCog, Users, Wheat } from "lucide-react"
+import {
+  Boxes,
+  GanttChartSquare,
+  Package,
+  PersonStanding,
+  UserCircle,
+  UserCog,
+  Users,
+  Wheat
+} from "lucide-react"
 import { Nav, NavItem } from "./Nav"
 
 export default function NavigationMenu() {
@@ -8,13 +17,13 @@ export default function NavigationMenu() {
       <NavItem link="/orders" icon={<GanttChartSquare />} Badge={2}>
         Orders
       </NavItem>
-      <NavItem link="/manage_users" icon={<UserCog />}>
+      <NavItem link="/manage_users" icon={<Users />}>
         User Management
       </NavItem>
-      <NavItem link="/merchants" icon={<Users />}>
+      <NavItem link="/merchants" icon={<UserCircle />}>
         Merchants
       </NavItem>
-      <NavItem link="/manage_commodity" icon={<Wheat />}>
+      <NavItem link="/manage_commodity" icon={<Package />}>
         Commodity Management
       </NavItem>
     </Nav>

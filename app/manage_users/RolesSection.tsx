@@ -1,39 +1,26 @@
 import { ActionItem, ActionMenu } from "@/customUI/ActionMenu"
-import LineTabComponent from "@/app/orders/LineTabComponent"
 import MyPagenation from "@/customUI/MyPagenation"
 import { MyTable, TableBody, TableHeader } from "@/customUI/MyTable"
 import { itemRangeType, pageSettingsType } from "@/types/types"
-import { Check, List, Microscope, Plus, User2 } from "lucide-react"
+import { Settings2, Trash2, User, UserCircle, UserCog } from "lucide-react"
 import React, { useState } from "react"
 import data from "../data.json"
 import { renderStatus } from "@/customUtils/renderStatus"
 import { Checkbox } from "@/components/ui/checkbox"
 
-interface DataTableSectionProps {
-  setIsViewOrder: any
-  setTargetScroll: any
-  targetDiv: any
+interface RolesSectionProps {
   className?: string
   style?: {}
 }
 
-export default function DataTableSection({
-  setIsViewOrder,
-  setTargetScroll,
-  targetDiv,
+export default function RolesSection({
   className = "",
   style
-}: DataTableSectionProps) {
+}: RolesSectionProps) {
   const headers = [
-    { accessor: "id", value: "ID" },
-    { accessor: "order_no", value: "Order No." },
-    { accessor: "merchant_id", value: "Merchant ID" },
-    { accessor: "created_by", value: "Created by" },
-    { accessor: "date_needed", value: "Date needed" },
-    { accessor: "status", value: "Status" },
-    { accessor: "remarks", value: "Remarks" },
-    { accessor: "date_created", value: "Date Created" },
-    { accessor: "date_modified", value: "Date Modified" },
+    { accessor: "name", value: "Name" },
+    { accessor: "description", value: "Description" },
+    { accessor: "no_permissions", value: "No. Permissions" },
     { accessor: "Action", value: "Action" }
   ]
 
@@ -55,23 +42,13 @@ export default function DataTableSection({
     data.slice(itemRange.start - 1, itemRange.end)
   )
 
-  function RowClick() {
-    setTargetScroll(targetDiv?.current?.scrollTop || 0)
-    setIsViewOrder((prev: boolean) => !prev)
-  }
+  function RowClick() {}
 
   return (
     <div
-      className={`max-w-[50%] overflow-x-hidden  lg:p-6 px-6 pb-4  ${className}`}
+      className={`max-w-[100%] overflow-x-auto  lg:p-6 lg:pt-0 px-6 pb-4  ${className}`}
       style={style}
     >
-      <LineTabComponent
-        setBaseData={setBaseData}
-        setPageSettings={setPageSettings}
-        setItemRange={setItemRange}
-        pageSettings={pageSettings}
-      />
-
       <MyTable>
         <TableHeader headers={headers} setBaseData={setBaseData} />
         <TableBody>
@@ -86,19 +63,7 @@ export default function DataTableSection({
                 <Checkbox className=" bg-background border-ring w-5 h-5 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500" />
               </td>
               <td className=" px-3 py-4" onClick={RowClick}>
-                {item.id}
-              </td>
-              <td className=" px-3 py-4" onClick={RowClick}>
-                {item.order_no}
-              </td>
-              <td className=" px-3 py-4" onClick={RowClick}>
-                {item.merchant_id}
-              </td>
-              <td className=" px-3 py-4" onClick={RowClick}>
                 {item.created_by}
-              </td>
-              <td className=" px-3 py-4" onClick={RowClick}>
-                {item.date_needed}
               </td>
               <td className=" px-3 py-4" onClick={RowClick}>
                 <div className="flex items-center gap-2 font-bold whitespace-nowrap  ">
@@ -107,24 +72,18 @@ export default function DataTableSection({
                   {renderStatus(item.status).icon}
                 </div>
               </td>
-              <td className=" px-3 py-4 border " onClick={RowClick}>
-                <div className="line-clamp-4 w-80">{item.remarks}</div>
-              </td>
-              <td className=" px-3 py-4  " onClick={RowClick}>
-                {item.date_created}
-              </td>
-              <td className=" px-3 py-4  " onClick={RowClick}>
-                {item.date_modified}
+              <td className=" px-3 py-4" onClick={RowClick}>
+                {item.created_by}
               </td>
               <td className=" px-3 py-4  ">
                 <ActionMenu>
                   <ActionItem onClick={() => {}}>
-                    <List className="h-4 w-4" />
-                    View Order Details
+                    <Settings2 className="h-4 w-4" />
+                    Edit Role
                   </ActionItem>
                   <ActionItem onClick={() => console.log("hi bro")}>
-                    <User2 className="h-4 w-4" />
-                    View Merchant
+                    <Trash2 className="h-4 w-4" />
+                    Delete
                   </ActionItem>
                 </ActionMenu>
               </td>

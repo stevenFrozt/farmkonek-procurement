@@ -8,6 +8,8 @@ import { Check, ChevronLeft, Microscope, Plus } from "lucide-react"
 import { useState } from "react"
 import data from "../data.json"
 import CreateOfferModal from "./CreateOfferModal"
+import OrderBreakDown from "./OrderBreakDown"
+import MySearch from "@/customUI/MySearch"
 
 interface ViewOrderProps {
   setIsViewOrder: React.Dispatch<React.SetStateAction<boolean>>
@@ -36,6 +38,7 @@ export default function ViewOrder({
   const [renderData, setRenderData] = useState(data.slice(0, 5))
 
   const [offerModal, setOfferModal] = useState(false)
+  const [breakDownModal, setBreakDownModal] = useState(false)
 
   return (
     <div
@@ -94,6 +97,7 @@ export default function ViewOrder({
               </div>
             </h1>
             <Separator />
+            {/* <MySearch /> */}
             <div>
               <MyTable>
                 <TableHeader headers={headers} setBaseData={setBaseData} />
@@ -111,6 +115,7 @@ export default function ViewOrder({
                       <td className=" px-3 py-4  ">{item.merchant_id}</td>
                       <td className=" px-3 py-4  ">{item.created_by}</td>
                       <td className=" px-3 py-4  ">{item.date_needed}</td>
+                      <td className=" px-3 py-4  ">{item.date_created}</td>
                       <td className=" px-3 py-4    ">
                         <div className="flex items-center gap-2 font-bold whitespace-nowrap ">
                           {renderStatus(item.status).indicator}
@@ -118,10 +123,6 @@ export default function ViewOrder({
                           {renderStatus(item.status).icon}
                         </div>
                       </td>
-                      <td className=" px-3 py-4  line-clamp-2 w-80 ">
-                        {item.remarks}
-                      </td>
-                      <td className=" px-3 py-4  ">{item.date_created}</td>
                       <td className=" px-3 py-4  ">{item.date_modified}</td>
                       <td className=" px-3 py-4  ">
                         <ActionMenu>
@@ -135,7 +136,9 @@ export default function ViewOrder({
                             <Plus className="h-4 w-4" />
                             Create Offer
                           </ActionItem>
-                          <ActionItem onClick={() => console.log("hi bro")}>
+                          <ActionItem
+                            onClick={() => setBreakDownModal(prev => !prev)}
+                          >
                             <Microscope className="w-4 h-4" />
                             View breakDown
                           </ActionItem>
@@ -149,6 +152,10 @@ export default function ViewOrder({
               <CreateOfferModal
                 offerModal={offerModal}
                 setOfferModal={setOfferModal}
+              />
+              <OrderBreakDown
+                offerModal={breakDownModal}
+                setOfferModal={setBreakDownModal}
               />
             </div>
           </div>

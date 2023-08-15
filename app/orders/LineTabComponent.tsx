@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { LineTab, Button as LineButton } from "./LineTab"
-import data from "../app/data.json"
-import MySearch from "./MySearch"
+import { LineTab, Button as LineButton } from "../../customUI/LineTab"
+import data from "../data.json"
+import MySearch from "../../customUI/MySearch"
 
 export default function LineTabComponent({
   setBaseData,

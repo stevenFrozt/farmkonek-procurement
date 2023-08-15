@@ -52,7 +52,7 @@ function MySearch({
       <Popover open={filterOpen} onOpenChange={setFilterOpen}>
         <PopoverTrigger asChild>
           <button className="flex items-center p-2  hover:text-green-500   whitespace-nowrap">
-            {filterValue.label}
+            {filterValue?.label}
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </button>
         </PopoverTrigger>
@@ -70,7 +70,7 @@ function MySearch({
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      filterValue.value === filter.value
+                      filterValue?.value === filter.value
                         ? "opacity-100"
                         : "opacity-0"
                     )}

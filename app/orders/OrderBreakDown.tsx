@@ -24,7 +24,7 @@ export default function OrderBreakDown({ offerModal, setOfferModal }: any) {
     <Dialog open={offerModal} onOpenChange={setOfferModal}>
       <DialogContent className="max-w-2xl gap-0 pt-8">
         <div className=" max-h-[85vh] w-full overflow-y-auto">
-          <h1 className="text-xl font-semibold ">Order BreakDown</h1>
+          <h1 className="text-xl font-semibold ">Details</h1>
           <Separator />
           <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-2 pt-4 pb-8">
             <ItemLabel label="ID" value="#082361" />

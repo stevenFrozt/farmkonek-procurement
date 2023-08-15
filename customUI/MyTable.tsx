@@ -9,7 +9,7 @@ export function MyTable({ children }: any) {
   return (
     <>
       <div className="max-w-full overflow-auto pt-10 bg-white">
-        <table>{children}</table>
+        <table className="w-full">{children}</table>
         {/* {renderData.length === 0 && searchValue !== "" && (
           <div className="flex items-center justify-center min-h-[10rem]">
             {tableMessage}
