@@ -77,8 +77,8 @@ export default function DataTableSection({
         <TableBody>
           {renderData?.map((item, index) => (
             <tr
-              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-base border-x-white  border-x-2  hover:border-x-farm-green ${
-                item.status === "Completed" ? "text-gray-300" : ""
+              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-sm border-x-white  border-x-2  hover:border-x-farm-green ${
+                item.status === "Completed" ? "text-gray-400" : ""
               } `}
               key={index}
             >
@@ -118,7 +118,7 @@ export default function DataTableSection({
               </td>
               <td className=" px-3 py-4  ">
                 <ActionMenu>
-                  <ActionItem onClick={() => {}}>
+                  <ActionItem onClick={() => setIsViewOrder(true)}>
                     <List className="h-4 w-4" />
                     View Order Details
                   </ActionItem>

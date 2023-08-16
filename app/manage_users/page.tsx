@@ -18,7 +18,7 @@ export default function Page() {
       <div
         className={` shadow-sm bg-white lg:rounded-xl min-h-[37rem] overflow-x-hidden `}
       >
-        <div className="px-6 pt-6 pb-4">
+        <div className="px-6 pt-6 ">
           <LineTabComponent />
         </div>
 

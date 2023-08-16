@@ -53,7 +53,7 @@ export default function PermissionSection({
         <TableBody>
           {renderData?.map((item, index) => (
             <tr
-              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-base border-x-white  border-x-2  hover:border-x-farm-green ${
+              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-sm border-x-white  border-x-2  hover:border-x-farm-green ${
                 item.status === "Completed" ? "text-gray-300" : ""
               } `}
               key={index}

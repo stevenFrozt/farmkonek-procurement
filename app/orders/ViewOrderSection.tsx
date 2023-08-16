@@ -104,7 +104,7 @@ export default function ViewOrder({
                 <TableBody>
                   {renderData?.map((item, index) => (
                     <tr
-                      className="border-b hover:shadow-inner text-xs md:text-base  cursor-pointer even:bg-accent odd:bg-white  border-l-white  border-l-2 hover:border-l-farm-green  "
+                      className="border-b hover:shadow-inner text-xs md:text-sm  cursor-pointer even:bg-accent odd:bg-white  border-l-white  border-l-2 hover:border-l-farm-green  "
                       key={index}
                     >
                       <td className="px-4">

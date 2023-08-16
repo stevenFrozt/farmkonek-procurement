@@ -126,7 +126,7 @@ function Pagenation({
       {/* <span className="bg-ring/50 w-[1.5px] mx-4 rounded-full h-7" /> */}
 
       {/* < 1 of 20 >  */}
-      <div className="flex items-center gap-4 order-first md:order-none pb-4 md:pb-0">
+      <div className="flex items-center gap-4 order-first md:order-none pb-2 md:pb-0">
         <button
           onClick={() => prevPage()}
           className={` text-white bg-green-500 rounded-md p-1 hover:scale-105 transition-all duration-150 ${
@@ -157,7 +157,7 @@ function Pagenation({
       {/* <span className="bg-ring/50 w-[1.5px] rounded-full h-7" /> */}
 
       {/* 1-25 of 500 items */}
-      <div className="flex items-center">
+      <div className="flex items-center pt-2 md:pt-0">
         <h1 className="whitespace-nowrap">
           {itemRange?.start === pageSettings.totalItems
             ? itemRange.start

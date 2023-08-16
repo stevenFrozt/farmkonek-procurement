@@ -7,6 +7,7 @@ import React, { useState } from "react"
 import data from "../data.json"
 import { renderStatus } from "@/customUtils/renderStatus"
 import { Checkbox } from "@/components/ui/checkbox"
+import EditRoleModal from "./EditRoleModal"
 
 interface RolesSectionProps {
   className?: string
@@ -44,6 +45,8 @@ export default function RolesSection({
 
   function RowClick() {}
 
+  const [showEditRoleModal, setShowEditRoleModal] = useState(false)
+
   return (
     <div
       className={`max-w-[100%] overflow-x-auto  lg:p-6 lg:pt-0 px-6 pb-4  ${className}`}
@@ -54,7 +57,7 @@ export default function RolesSection({
         <TableBody>
           {renderData?.map((item, index) => (
             <tr
-              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-base border-x-white  border-x-2  hover:border-x-farm-green ${
+              className={` border-b hover:shadow-inner cursor-pointer even:bg-accent odd:bg-white text-xs md:text-sm border-x-white  border-x-2  hover:border-x-farm-green ${
                 item.status === "Completed" ? "text-gray-300" : ""
               } `}
               key={index}
@@ -77,7 +80,9 @@ export default function RolesSection({
               </td>
               <td className=" px-3 py-4  ">
                 <ActionMenu>
-                  <ActionItem onClick={() => {}}>
+                  <ActionItem
+                    onClick={() => setShowEditRoleModal(prev => !prev)}
+                  >
                     <Settings2 className="h-4 w-4" />
                     Edit Role
                   </ActionItem>
@@ -98,6 +103,10 @@ export default function RolesSection({
         setItemRange={setItemRange}
         setRenderData={setRenderData}
         baseData={baseData}
+      />
+      <EditRoleModal
+        setShowEditRoleModal={setShowEditRoleModal}
+        showEditRoleModal={showEditRoleModal}
       />
     </div>
   )
