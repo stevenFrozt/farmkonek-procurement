@@ -1,14 +1,12 @@
-import { useState } from "react"
 import { LineTab, Button as LineButton } from "../../customUI/LineTab"
-import data from "../data.json"
 import MySearch from "../../customUI/MySearch"
 import { useAtom } from "jotai"
-import { tabIndex } from "./page"
+import { tabIndexAtom } from "./state"
 import { Button } from "@/components/ui/button"
 import { Plus, UserPlus } from "lucide-react"
 
 export default function LineTabComponent({}: any) {
-  const [currentTab, setCurrentTab] = useAtom(tabIndex)
+  const [currentTab, setCurrentTab] = useAtom(tabIndexAtom)
   // CHANGE TAB
   function changeTab(event: React.MouseEvent<HTMLDivElement>) {
     const eventTarget = event.target as HTMLDivElement
