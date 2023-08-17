@@ -1,17 +1,14 @@
 "use client"
 import Layout from "@/customUI/Layout"
-import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
 import UsersSection from "./UsersSection"
-import { atom, useAtom } from "jotai"
+import { useAtom } from "jotai"
 import RolesSection from "./RolesSection"
 import LineTabComponent from "./LineTabComponent"
 import PermissionSection from "./PermissionSection"
-
-export const tabIndex = atom(0)
+import { tabIndexAtom } from "./state"
 
 export default function Page() {
-  const [currentTab] = useAtom(tabIndex)
+  const [currentTab] = useAtom(tabIndexAtom)
 
   return (
     <Layout>
