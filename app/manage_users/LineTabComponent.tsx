@@ -45,11 +45,7 @@ export default function LineTabComponent({}: any) {
       </div>
 
       {/* SEARCH */}
-      <MySearch
-      // handleSearch={handleSearch}
-      // filterSelect={filterSelect}
-      // filterValue={filterValue}
-      />
+
       {currentTab === 1 ? (
         <Button className="flex items-center justify-center gap-2 bg-blue-400 hover:bg-blue-500  ">
           <UserPlus className="h-5 w-5" /> Create Role
