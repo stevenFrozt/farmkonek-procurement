@@ -51,7 +51,7 @@ export default function EditRoleModal({
                   <Search />
                   <Button>Select All</Button>
                 </div>
-                <div className="border py-8 px-8 rounded-md flex items-center flex-wrap gap-4 max-h-[276px] overflow-y-auto">
+                <div className="border px-4 py-4 md:py-8 md:px-8 rounded-md flex items-center flex-wrap gap-4 max-h-[276px] overflow-y-auto">
                   <RoleButton title="Create" />
                   <RoleButton title="Read:farms" />
                   <RoleButton title="test:fa" />

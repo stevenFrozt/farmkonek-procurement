@@ -22,8 +22,8 @@ import React, { useState } from "react"
 export default function CreateOfferModal({ offerModal, setOfferModal }: any) {
   return (
     <Dialog open={offerModal} onOpenChange={setOfferModal}>
-      <DialogContent className="max-w-2xl gap-0 pt-8">
-        <div className=" max-h-[95vh] w-full overflow-y-auto">
+      <DialogContent className="max-w-2xl gap-0 pt-8 mt-8 md:mt-0">
+        <div className=" max-h-[95vh] w-full scrollbar-hide overflow-y-auto pb-24 pt-4 md:py-0">
           <h1 className="text-xl font-semibold ">Order Item</h1>
           <Separator />
           <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-2 pt-4 pb-8">

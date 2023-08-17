@@ -81,6 +81,7 @@
   /* Define custom CSS for scrollbar hide */
   .scrollbar-hide::-webkit-scrollbar {
     width: 0.5em;
+    display: none;
   }
 
   .scrollbar-hide::-webkit-scrollbar-thumb {
@@ -89,5 +90,10 @@
 
   .scrollbar-hide {
     scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  .scrollbar-hide::-webkit-scrollbar-track {
+    display: none;
+    width: 0px;
   }
 }
